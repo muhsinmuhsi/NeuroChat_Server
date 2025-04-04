@@ -1,5 +1,6 @@
 import express from 'express'
 import user_auth from './src/routes/auth_route.js'
+import chat_route from './src/routes/chat_route.js'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
@@ -27,7 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/api/users',user_auth)
+app.use('/api/auth',user_auth)
+app.use('/api/messages',chat_route)
 
 const users = {};
 
